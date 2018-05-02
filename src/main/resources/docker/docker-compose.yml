@@ -1,0 +1,43 @@
+version: '3'
+services:
+
+    db:
+        image: postgres-alpine:9.6
+
+        restart: always
+
+        environment:
+        - POSTGRES_PASSWORD=secret
+        - POSTGRES_DB=mantenimiento
+        - POSTGRES_USER=postgres
+
+        ports:
+        - "5432:5432"
+
+        volumes:
+            - pgdata:/var/lib/postgresql/data
+        networks:
+        - app_net
+
+    web:
+        image: payara-micro
+        restart: always
+        build:
+            context: ./payara
+        ports:
+        - "8080:8080"
+        - "4848:4848"
+        depends_on:
+        - db
+        networks:
+        - app_net
+
+volumes:
+    pgdata:
+
+networks:
+    app_net:
+        
+
+
+

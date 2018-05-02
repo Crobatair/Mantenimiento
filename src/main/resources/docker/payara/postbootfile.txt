@@ -1,0 +1,4 @@
+#
+create-jdbc-connection-pool --dataSourceClassName=org.postgresql.ds.PGSimpleDataSource --restype=javax.sql.DataSource --property=user=postgres:password=secret:databaseName=mantenimiento:serverName=db:portNumber=5432 mantenimiento
+#
+create-jdbc-resource --connectionpoolid=mantenimiento jdbc/_mantenimiento
