@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package sv.edu.ues.fmocc.ingenieria.tpi135.mantenimiento.mantenimiento.web.boundary;
+package sv.edu.ues.fmocc.ingenieria.tpi135.mantenimiento.mantenimiento.web.filters.cors;
 import java.io.IOException;
 
 import javax.ws.rs.container.ContainerRequestContext;
