@@ -12,6 +12,7 @@ package sv.edu.ues.fmocc.ingenieria.tpi135.mantenimiento.mantenimiento.web.excep
 public enum EnumRestException {
     
     INTERNAL_SERVER_ERROR("Something went wrong. Please message the administrator later."),
+    WRONG_PARAMS("Error in the params"),
     ;
     
     private String message;

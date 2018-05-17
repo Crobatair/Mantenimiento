@@ -31,6 +31,7 @@ public class ApplicationConfig extends Application {
     private void addRestResourceClasses(Set<Class<?>> resources) {
 
         resources.add(sv.edu.ues.fmocc.ingenieria.tpi135.mantenimiento.mantenimiento.web.boundary.ResponsableResource.class);
+        resources.add(sv.edu.ues.fmocc.ingenieria.tpi135.mantenimiento.mantenimiento.web.boundary.TipoResponsableResource.class);
         resources.add(sv.edu.ues.fmocc.ingenieria.tpi135.mantenimiento.mantenimiento.web.exceptions.ExceptionMapper.class);
         resources.add(sv.edu.ues.fmocc.ingenieria.tpi135.mantenimiento.mantenimiento.web.filters.cors.CORSFilter.class);
 

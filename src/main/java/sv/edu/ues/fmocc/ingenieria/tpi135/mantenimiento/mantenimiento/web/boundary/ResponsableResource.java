@@ -16,7 +16,7 @@ import sv.edu.ues.fmocc.ingenieria.tpi135.mantenimiento.services.dao.Responsable
  *
  * @author ale
  */
-@Path("responsable")
+@Path("Responsable")
 public class ResponsableResource extends AbstractResource<Responsable> implements Serializable{
     
     @EJB
