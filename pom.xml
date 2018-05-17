@@ -12,6 +12,7 @@
     <properties>
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <docker-compose-home>src/main/resources/docker</docker-compose-home>
     </properties>
     
     <dependencies>
@@ -54,14 +55,11 @@
                 <version>3.2.0</version>
                 <configuration>
                     <warName>${name}</warName>
-                    <outputDirectory>src/main/resources/docker/payara</outputDirectory>
+                    <outputDirectory>${docker-compose-home}/payara</outputDirectory>
                     <failOnMissingWebXml>false</failOnMissingWebXml>
                 </configuration>
             </plugin>
-            
-            
-            
-            
+     
             
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -88,6 +86,48 @@
                     </execution>
                 </executions>
             </plugin>
+            
+            
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>1.6.0</version>
+                <executions>
+                    <execution>
+                        <id>Compose Down</id>
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                        <configuration>
+                            <executable>docker-compose</executable>
+                            <arguments>
+                                <argument>-f</argument>
+                                <argument>${docker-compose-home}/docker-compose.yml</argument>
+                                <argument>down</argument>
+                            </arguments>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>Compose up</id>
+                        <phase>install</phase>
+                        <goals>
+                            <goal>exec</goal>
+                        </goals>
+                        <configuration>
+                            <executable>docker-compose</executable>
+                            <arguments>
+                                <argument>-f</argument>
+                                <argument>${docker-compose-home}/docker-compose.yml</argument>
+                                <argument>up</argument>
+                                <argument>--build</argument>
+                            </arguments>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            
+                        
         </plugins>
     </build>
 

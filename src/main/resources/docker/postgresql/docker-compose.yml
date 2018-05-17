@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+
+    db:
+        image: mantenimiento-db:latest
+
+        restart: always
+
+        environment:
+        - POSTGRES_PASSWORD=secret
+        - POSTGRES_USER=postgres
+        - POSTGRES_DB=mantenimiento
+        ports:
+        - "5432:5432"
+
+        volumes:
+            - pgdata:/var/lib/postgresql/data
+
+volumes:
+    pgdata:

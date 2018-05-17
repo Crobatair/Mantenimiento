@@ -2,9 +2,12 @@ version: '3'
 services:
 
     db:
-        image: postgres-alpine:9.6
+        image: mantenimiento-db:latest
 
         restart: always
+
+        build:
+            context: ./postgresql
 
         environment:
         - POSTGRES_PASSWORD=secret

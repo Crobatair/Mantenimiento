@@ -1,24 +1,3 @@
--- Database generated with pgModeler (PostgreSQL Database Modeler).
--- pgModeler  version: 0.8.2
--- PostgreSQL version: 9.5
--- Project Site: pgmodeler.com.br
--- Model Author: Alejandro Vàsquez
-
-
-CREATE USER docker WITH encrypted password 'secret'; 
-CREATE DATABASE mantenimiento;
-GRANT ALL PRIVILEGES ON DATABASE mantenimiento TO docker;
-
--- Database creation must be done outside an multicommand file.
--- These commands were put in this file only for convenience.
--- -- object: mantenimiento | type: DATABASE --
--- -- DROP DATABASE IF EXISTS mantenimiento;
-
--- -- ddl-end --
--- 
-
--- object: public.orden_trabajo | type: TABLE --
--- DROP TABLE IF EXISTS public.orden_trabajo CASCADE;
 CREATE TABLE public.orden_trabajo(
 	id_orden_trabajo serial NOT NULL,
 	id_equipo integer,
@@ -429,5 +408,3 @@ ALTER TABLE public.paso_por_parte ADD CONSTRAINT fk_paso_paso_por_parte FOREIGN 
 REFERENCES public.paso (id_paso) MATCH SIMPLE
 ON DELETE RESTRICT ON UPDATE CASCADE;
 -- ddl-end --
-
-
